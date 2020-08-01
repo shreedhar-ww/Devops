@@ -3,10 +3,12 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SmarttreeComponent } from './smarttree/smarttree.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SmarttreeComponent
   ],
   imports: [
     BrowserModule,
