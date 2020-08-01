@@ -1,11 +1,12 @@
+FROM node:alpine AS builder
 
-# Stage 1
- 
-FROM node:12.7-alpine AS build
-WORKDIR /usr/src/app
-COPY package.json package-lock.json ./
-RUN npm install
+WORKDIR /app
+
 COPY . .
-RUN npm run build --prod
-FROM nginx:1.15.8-alpine
-COPY --from=builder /usr/src/app/dist/angularapp/ /usr/share/nginx/html
+
+RUN npm install && \
+    npm run build
+
+FROM nginx:alpine
+
+COPY --from=builder /app/dist/* /usr/share/nginx/html/
