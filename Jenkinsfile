@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('Restore') {
             steps {
-                sh 'npm install'
+                // sh 'npm install'
             }
         }
         stage('Build') {
